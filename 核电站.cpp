@@ -1,5 +1,7 @@
-# RickieShell
+
+# @ RickieShell
 ONE NOI RUNNER
+
 #include<iostream>
 using namespace std;	
 int n,m;
