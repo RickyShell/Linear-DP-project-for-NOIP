@@ -1,19 +1,39 @@
 #include<iostream>
 #include<cstdio>
 using namespace std;
-double dollar[10001];
-int main(){
+
+const int MONEY = 100;
+
+struct situation
+{
+	double dollar;
+	double mark;
+};
+
+int main()
+{
 	int n;
 	cin>>n;
-	for(int i=1;i<=n;i++){
-		cin>>dollar[i];
+	double value[n+1];
+	for(int i=1;i<=n;i++)
+	{
+		cin>>value[i];
+		value[i] /= 100;
 	}
-	double mark=100.0;
-	for(int i=1;i<=n-1;i++){
-		if(dollar[i+1]<dollar[i]){
-			mark*=(double)dollar[i]/dollar[i+1];
+	situation Dp[n+1];
+	for(int i=0;i<=n;i++)
+	{
+		if(i == 0)
+		{
+			Dp[i].dollar = MONEY;
+			Dp[i].mark = 0;
+		}
+		else
+		{
+			Dp[i].dollar = max(Dp[i-1].mark / value[i], Dp[i-1].dollar);
+			Dp[i].mark = max(Dp[i-1].dollar * value[i], Dp[i-1].mark);
 		}
 	}
-	printf("%.2f",mark);
+	printf("%.2lf",Dp[n].dollar);
 	return 0;
 }
