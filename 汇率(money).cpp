@@ -37,3 +37,4 @@ int main()
 	printf("%.2lf",Dp[n].dollar);
 	return 0;
 }
+@原方法有问题
