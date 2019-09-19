@@ -37,4 +37,5 @@ int main()
 	printf("%.2lf",Dp[n].dollar);
 	return 0;
 }
-@原方法有问题
+@原方法没有问题
+@算法不同，概念不同
